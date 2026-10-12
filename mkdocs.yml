@@ -92,6 +92,9 @@ nav:
       - Globus / DTN: services/globus.md
   - Monitoring:
       - Overview: monitoring/overview.md
+      - Monitoring hosts: monitoring/hosts.md
+      - Prometheus & Thanos: monitoring/prometheus.md
+      - Grafana: monitoring/grafana.md
       - Exporters & collectors: monitoring/exporters.md
       - Jobstats & Job Defense Shield: monitoring/jobstats-jds.md
       - Logging: monitoring/logging.md

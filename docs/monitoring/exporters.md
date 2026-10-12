@@ -1,7 +1,8 @@
 # Exporters & textfile collectors
 
-Source of truth: `/opt/mprov/software/exporter_installs/` (also copied to
-`/home/jhu/mprotzm2/` while it was being developed). Two entry points:
+Source of truth: GitHub **`jhu-arch/mprov-exporters`**, checked out at `/opt/mprov/software/exporter_installs/`
+(shared, read by every node at boot). Its `README.md` is authoritative and more detailed than this page.
+Two entry points:
 
 | Script | Runs on | When |
 |---|---|---|
@@ -50,7 +51,37 @@ pdsh -f 16 -w '<nodes>' '/opt/mprov/software/exporter_installs/installers/export
 # b200s need the override:  -gpu --systemgroup=gpu-b200
 ```
 
+## Long-running exporters
+
+| Exporter | Port | Roles |
+|---|---|---|
+| node_exporter | 9100 | all (role config in `roles/<role>.conf`, hardware overrides in `roles/overrides/`) |
+| ipmi_exporter | 9290 | physical nodes (VMs skipped) |
+| cgroup_exporter | 9306 | compute, GPU (per-job CPU/memory for jobstats) |
+| nvidia_gpu_prometheus_exporter | 9445 | NVIDIA GPU nodes (jobstats GPU metrics + job mapping) |
+| infiniband_exporter | 9315 | one host per fabric (`roles/ib-fabric-exporter-hosts`) |
+
+Role comes from the mProv systemgroup (`gpu-*` → gpu_compute, `cpu` → compute, `head` → mgmt, `login`,
+`dtn`, `storage`). By hand: `exporterinstaller.sh -login`, `-gpu`, `--systemgroup=gpu-b200`. The installer is
+idempotent; components that no longer apply to a role are removed.
+
+## Making a change
+
+```bash
+# in your clone of jhu-arch/mprov-exporters
+git commit -am "..." && git push
+# on mgmt01 (live checkout)
+cd /opt/mprov/software/exporter_installs && git pull --ff-only
+# nodes pick it up at next boot, or roll out now:
+pdsh -w '<nodes>' '/opt/mprov/software/exporter_installs/installers/exporterinstaller.sh -gpu'
+# mgmt02 pieces:
+mgmt02-monitoring/deploy-mgmt02-monitoring.sh --dry-run   # then without --dry-run
+```
+
+Prometheus side: rack nodes (gpu/compute/dtn) only keep the metric families the dashboards use (keep-list in the
+skipjack `prometheus.yml`, node job); mgmt/login/monitoring hosts keep everything. New metric families on rack
+nodes must be added to that list.
+
 !!! todo "Stub"
-    - [ ] Metric naming conventions and which alerts read each collector
+    - [ ] Which alerts read each collector
     - [ ] Exporter binary versions (`bin/VERSIONS.md`) and the upgrade procedure
-    - [ ] Move the exporter repo into git, if it isn't already
