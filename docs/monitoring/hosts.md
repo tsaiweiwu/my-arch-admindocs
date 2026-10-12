@@ -38,7 +38,7 @@ ever moves), `.3` Loki/SR665 (planned), `.11/.12` infra pair, `.21/.22` skipjack
 | Thanos Query | `thanos-query.service`, endpoints `/etc/thanos/endpoints.yml` (re-read every 5 min). :10902 open to 172.16.5.0/24 and mgmt02 (jobstats) |
 | Status page | `status-publisher.timer` → `/srv/status`, nginx :8081 (NPM only) |
 | Hardware digest | `hw-digest.timer` (weekdays 08:30) → #hw-alerts |
-| Admin docs | `admindocs-build.timer` → `/srv/admindocs`, nginx :8082 (NPM only) |
+| Admin docs | https://admindocs.arch.jhu.edu: `admindocs-build.timer` pulls `jhu-arch/arch-admindocs` (read-only deploy key `/root/.ssh/admindocs_deploy`) every 5 min and rebuilds on a new commit → `/srv/admindocs`, nginx :8082 (NPM only, staff login) |
 
 !!! todo "Stub"
     - [ ] rfprom1 VMID
