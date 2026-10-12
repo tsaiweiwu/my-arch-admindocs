@@ -35,6 +35,6 @@ To publish, push this repo to GitHub/GitLab and import it on readthedocs.org
 (or a Read the Docs for Business org if the docs must be private).
 
 !!! todo "Stub"
-    - [ ] Pick the remote repo (`jhu-arch/admindocs`?) and set `repo_url` in `mkdocs.yml`
+    - [x] Remote repo: `jhu-arch/arch-admindocs` (private); archgraf pulls it every 5 min with a read-only deploy key
     - [ ] Public vs. private hosting. Much of this content (IP plan, findings) **shouldn't be public**
     - [ ] Docs review cadence and owners

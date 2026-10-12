@@ -1,6 +1,6 @@
 site_name: Skipjack Admin Docs
 site_description: Administrator documentation for the Skipjack HPC cluster (ARCH @ JHU)
-repo_url: https://github.com/jhu-arch/admindocs   # TODO: set the real repo URL
+repo_url: https://github.com/jhu-arch/arch-admindocs
 edit_uri: edit/main/docs/
 copyright: Advanced Research Computing at Hopkins (ARCH)
 
