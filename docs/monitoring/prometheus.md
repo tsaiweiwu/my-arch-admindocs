@@ -5,7 +5,7 @@
 | Shard | Hosts | Scrapes | Retention |
 |---|---|---|---|
 | `skipjack` | sjprom1 / sjprom2 | node, ipmi, cgroup, gpu exporters on every node (per-rack target files), Slurm (mgmt02), logporter, blackbox ping / SSH / BMC per node, service probes | 120 d / 400 GB (~3 GB/day) |
-| `infra` | infraprom1 / infraprom2 | Proxmox (pve_exporter), VAST, PDUs (SNMP, vlan609), CDUs (Modbus), HTTPS probes | 365 d / 200 GB (~0.1 GB/day) |
+| `infra` | infraprom1 / infraprom2 | Proxmox (pve_exporter), VAST, **WEKA** (job `weka-observe`: WEKA's NeuralMesh Observe cloud export, 4 endpoints, 60 s, bearer token in `/etc/prometheus/secrets/weka_observe_token`, ~27.7k series), PDUs (SNMP, vlan609), CDUs (Modbus), HTTPS probes | 365 d / 200 GB (~0.2 GB/day with WEKA) |
 | `rockfish` | rfprom1 | GPFS NSD servers gpfs01-06 (node_exporter + gpfs_exporter every 3 min) over rfadmin | 365 d / 80 GB |
 
 Each replica: `external_labels: {shard: <shard>, replica: "1"|"2"}`. Thanos Query deduplicates on `replica`, so
@@ -36,6 +36,11 @@ node_exporter 1.12.1, blackbox 0.28.0.
 |---|---|
 | `rules/hardware-health.yml` | `hw:issue{check,severity}` per node (generated from `build_hwhealth_dashboards.py`), `hw:gpu_throttle:bits`, `hw:ib_active_ports` |
 | `rules/node.yml` | per-node CPU busy, cores, load per core, memory used (fast 7-day panels) |
+
+WEKA notes: Observe values are already rates (no `rate()`); a few series (cluster status, drive temperatures) carry
+WEKA's own timestamps (updated every ~61 s); WEKA's `shard` label is renamed `weka_shard` at scrape time so it can't
+clash with ours. Observe allows one token per cluster: generating a new one breaks the old immediately, so update the
+secret on **both** infraprom VMs.
 
 ## Querying
 
