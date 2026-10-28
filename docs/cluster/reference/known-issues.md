@@ -26,4 +26,4 @@
 | 20 | Some `ga*` hosts resolve to IPv6 link-local first in DNS | `getent hosts ga129` |
 | 21 | `GresTypes` includes `shard`, but no node defines shards | `slurm.conf` |
 
-See also [Security posture](../security/posture.md).
+See also [Security posture](../../systems/security/posture.md).

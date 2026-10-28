@@ -7,6 +7,7 @@ copyright: Advanced Research Computing at Hopkins (ARCH)
 theme:
   name: material
   features:
+    - navigation.tabs
     - navigation.sections
     - navigation.indexes
     - navigation.top
@@ -39,94 +40,190 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
 
+plugins:
+  - search
+  # Old URLs (before the cluster / sse / systems split, 2026-10-28) keep working.
+  - redirects:
+      redirect_maps:
+        compute/cpu-nodes.md: cluster/hardware/cpu-nodes.md
+        compute/gpu-nodes.md: cluster/hardware/gpu-nodes.md
+        compute/inventory.md: cluster/hardware/inventory.md
+        compute/node-lifecycle.md: systems/compute/node-lifecycle.md
+        compute/provisioning.md: systems/compute/provisioning.md
+        identity/keycloak.md: systems/identity/keycloak.md
+        identity/ldap-sssd.md: systems/identity/ldap-sssd.md
+        identity/user-lifecycle.md: sse/accounts/user-lifecycle.md
+        infrastructure/access.md: systems/infrastructure/access.md
+        infrastructure/bmc-ipmi.md: systems/infrastructure/bmc-ipmi.md
+        infrastructure/infiniband.md: systems/infrastructure/infiniband.md
+        infrastructure/login-dtn.md: systems/infrastructure/login-dtn.md
+        infrastructure/mgmt01.md: systems/infrastructure/mgmt01.md
+        infrastructure/mgmt02.md: systems/infrastructure/mgmt02.md
+        infrastructure/network.md: systems/infrastructure/network.md
+        monitoring/alerting.md: systems/monitoring/alerting.md
+        monitoring/exporters.md: systems/monitoring/exporters.md
+        monitoring/grafana.md: systems/monitoring/grafana.md
+        monitoring/hosts.md: systems/monitoring/hosts.md
+        monitoring/jobstats-jds.md: sse/jobs/jobstats-jds.md
+        monitoring/logging.md: systems/monitoring/logging.md
+        monitoring/overview.md: systems/monitoring/overview.md
+        monitoring/prometheus.md: systems/monitoring/prometheus.md
+        operations/backups.md: systems/operations/backups.md
+        operations/change-management.md: systems/operations/change-management.md
+        operations/daily-checks.md: systems/operations/daily-checks.md
+        operations/incident-response.md: systems/operations/incident-response.md
+        operations/maintenance.md: systems/operations/maintenance.md
+        operations/patching.md: systems/operations/patching.md
+        operations/scheduled-jobs.md: systems/operations/scheduled-jobs.md
+        overview/architecture.md: cluster/overview/architecture.md
+        overview/cluster-at-a-glance.md: cluster/overview/cluster-at-a-glance.md
+        overview/contacts.md: cluster/overview/contacts.md
+        overview/glossary.md: cluster/overview/glossary.md
+        overview/naming-conventions.md: cluster/overview/naming-conventions.md
+        reference/cheatsheet.md: cluster/reference/cheatsheet.md
+        reference/file-locations.md: cluster/reference/file-locations.md
+        reference/known-issues.md: cluster/reference/known-issues.md
+        reference/ports.md: cluster/reference/ports.md
+        reference/related-docs.md: cluster/reference/related-docs.md
+        runbooks/filesystem-full.md: sse/runbooks/filesystem-full.md
+        runbooks/gpu-errors.md: systems/runbooks/gpu-errors.md
+        runbooks/index.md: systems/runbooks/index.md
+        runbooks/node-down.md: systems/runbooks/node-down.md
+        runbooks/restore-db.md: systems/runbooks/restore-db.md
+        runbooks/slurmctld-unresponsive.md: systems/runbooks/slurmctld-unresponsive.md
+        runbooks/user-login.md: sse/runbooks/user-login.md
+        runbooks/weka-mount-missing.md: systems/runbooks/weka-mount-missing.md
+        security/posture.md: systems/security/posture.md
+        security/secrets.md: systems/security/secrets.md
+        services/cloack-stack.md: systems/services/cloack-stack.md
+        services/coldfront.md: sse/services/coldfront.md
+        services/globus.md: systems/services/globus.md
+        services/helpdesk.md: sse/services/helpdesk.md
+        services/mail.md: systems/services/mail.md
+        services/open-ondemand.md: sse/services/open-ondemand.md
+        services/reverse-proxy.md: systems/services/reverse-proxy.md
+        slurm/accounts-qos.md: cluster/slurm/accounts-qos.md
+        slurm/common-tasks.md: systems/slurm/common-tasks.md
+        slurm/configuration.md: systems/slurm/configuration.md
+        slurm/job-submit-billing.md: cluster/slurm/job-submit-billing.md
+        slurm/nhc.md: systems/slurm/nhc.md
+        slurm/overview.md: cluster/slurm/overview.md
+        slurm/partitions.md: cluster/slurm/partitions.md
+        slurm/prolog-epilog.md: systems/slurm/prolog-epilog.md
+        slurm/restart.md: systems/slurm/restart.md
+        slurm/troubleshooting.md: systems/slurm/troubleshooting.md
+        slurm/upgrades.md: systems/slurm/upgrades.md
+        software/containers.md: sse/software/containers.md
+        software/helpers.md: sse/software/helpers.md
+        software/modules.md: sse/software/modules.md
+        storage/layout.md: cluster/storage/layout.md
+        storage/nfs-autofs.md: systems/storage/nfs-autofs.md
+        storage/quotas.md: cluster/storage/quotas.md
+        storage/weka.md: systems/storage/weka.md
+
 nav:
   - Home: index.md
-  - Overview:
-      - Cluster at a glance: overview/cluster-at-a-glance.md
-      - Architecture: overview/architecture.md
-      - Naming conventions: overview/naming-conventions.md
-      - Contacts & escalation: overview/contacts.md
-      - Glossary: overview/glossary.md
-  - Infrastructure:
-      - Accessing the cluster: infrastructure/access.md
-      - mgmt02 (Slurm/portal head): infrastructure/mgmt02.md
-      - mgmt01 (provisioning head): infrastructure/mgmt01.md
-      - Networks & addressing: infrastructure/network.md
-      - Login & DTN nodes: infrastructure/login-dtn.md
-      - BMC / IPMI / iDRAC: infrastructure/bmc-ipmi.md
-      - InfiniBand fabric: infrastructure/infiniband.md
-  - Compute:
-      - Node inventory: compute/inventory.md
-      - CPU nodes: compute/cpu-nodes.md
-      - GPU nodes: compute/gpu-nodes.md
-      - Provisioning (mProv): compute/provisioning.md
-      - Adding / retiring nodes: compute/node-lifecycle.md
-  - Slurm:
-      - Overview: slurm/overview.md
-      - Configuration: slurm/configuration.md
-      - Partitions: slurm/partitions.md
-      - Accounts, QOS & fairshare: slurm/accounts-qos.md
-      - Job submit, billing & cost gate: slurm/job-submit-billing.md
-      - Prolog / epilog / SPANK: slurm/prolog-epilog.md
-      - Node Health Check (NHC): slurm/nhc.md
-      - Common admin tasks: slurm/common-tasks.md
-      - Restarting Slurm: slurm/restart.md
-      - Upgrading Slurm: slurm/upgrades.md
-      - Troubleshooting: slurm/troubleshooting.md
-  - Storage:
-      - WEKA: storage/weka.md
-      - Filesystem layout: storage/layout.md
-      - Quotas & usage: storage/quotas.md
-      - NFS & autofs: storage/nfs-autofs.md
-  - Identity & access:
-      - LDAP & SSSD: identity/ldap-sssd.md
-      - Keycloak & SSO: identity/keycloak.md
-      - User & project lifecycle: identity/user-lifecycle.md
-  - Services (CLOACK stack):
-      - Stack overview: services/cloack-stack.md
-      - ColdFront portal: services/coldfront.md
-      - Helpdesk: services/helpdesk.md
-      - Open OnDemand: services/open-ondemand.md
-      - Reverse proxy (NPM) & TLS: services/reverse-proxy.md
-      - Mail (arch-mta): services/mail.md
-      - Globus / DTN: services/globus.md
-  - Monitoring:
-      - Overview: monitoring/overview.md
-      - Monitoring hosts: monitoring/hosts.md
-      - Prometheus & Thanos: monitoring/prometheus.md
-      - Grafana: monitoring/grafana.md
-      - Exporters & collectors: monitoring/exporters.md
-      - Jobstats & Job Defense Shield: monitoring/jobstats-jds.md
-      - Logging: monitoring/logging.md
-      - Alerting: monitoring/alerting.md
-  - Software:
-      - Modules (Lmod / Spack / EasyBuild): software/modules.md
-      - Containers (Apptainer / enroot / Pyxis): software/containers.md
-      - User helper scripts: software/helpers.md
-  - Operations:
-      - Daily checks: operations/daily-checks.md
-      - Scheduled jobs: operations/scheduled-jobs.md
-      - Backups & restore: operations/backups.md
-      - Maintenance windows: operations/maintenance.md
-      - Change management: operations/change-management.md
-      - Incident response: operations/incident-response.md
-      - Patching & OS updates: operations/patching.md
-  - Security:
-      - Posture & findings: security/posture.md
-      - Secrets handling: security/secrets.md
-  - Runbooks:
-      - runbooks/index.md
-      - Node down / drained: runbooks/node-down.md
-      - slurmctld slow or unresponsive: runbooks/slurmctld-unresponsive.md
-      - WEKA mount missing: runbooks/weka-mount-missing.md
-      - GPU Xid / missing GPU: runbooks/gpu-errors.md
-      - User cannot log in: runbooks/user-login.md
-      - Restore a CLOACK database: runbooks/restore-db.md
-      - Filesystem full: runbooks/filesystem-full.md
-  - Reference:
-      - Ports & services: reference/ports.md
-      - File locations: reference/file-locations.md
-      - Command cheat sheet: reference/cheatsheet.md
-      - Known issues & observations: reference/known-issues.md
-      - Related in-house docs: reference/related-docs.md
+  - Cluster:
+      - cluster/index.md
+      - Overview:
+          - Cluster at a glance: cluster/overview/cluster-at-a-glance.md
+          - Architecture: cluster/overview/architecture.md
+          - Naming conventions: cluster/overview/naming-conventions.md
+          - Contacts & escalation: cluster/overview/contacts.md
+          - Glossary: cluster/overview/glossary.md
+      - Hardware:
+          - Node inventory: cluster/hardware/inventory.md
+          - CPU nodes: cluster/hardware/cpu-nodes.md
+          - GPU nodes: cluster/hardware/gpu-nodes.md
+      - Slurm:
+          - Overview: cluster/slurm/overview.md
+          - Partitions: cluster/slurm/partitions.md
+          - Accounts, QOS & fairshare: cluster/slurm/accounts-qos.md
+          - Job submit, billing & cost gate: cluster/slurm/job-submit-billing.md
+      - Storage:
+          - Filesystem layout: cluster/storage/layout.md
+          - Quotas & usage: cluster/storage/quotas.md
+      - Reference:
+          - Ports & services: cluster/reference/ports.md
+          - File locations: cluster/reference/file-locations.md
+          - Command cheat sheet: cluster/reference/cheatsheet.md
+          - Known issues & observations: cluster/reference/known-issues.md
+          - Related in-house docs: cluster/reference/related-docs.md
+  - SSE:
+      - sse/index.md
+      - Software:
+          - Modules (Lmod / Spack / EasyBuild): sse/software/modules.md
+          - SpackON (shared Spack stacks): sse/software/spack.md
+          - Containers (Apptainer / enroot / Pyxis): sse/software/containers.md
+          - CryoSPARC: sse/software/cryosparc.md
+          - User helper scripts: sse/software/helpers.md
+      - Accounts & portal:
+          - User & project lifecycle: sse/accounts/user-lifecycle.md
+          - CLOACK admin CLI: sse/cloack-admin-cli.md
+          - ColdFront portal: sse/services/coldfront.md
+          - Helpdesk: sse/services/helpdesk.md
+          - Open OnDemand: sse/services/open-ondemand.md
+      - Jobs:
+          - Jobstats & Job Defense Shield: sse/jobs/jobstats-jds.md
+      - Runbooks:
+          - User cannot log in: sse/runbooks/user-login.md
+          - Filesystem full: sse/runbooks/filesystem-full.md
+  - Systems:
+      - systems/index.md
+      - Infrastructure:
+          - Accessing the cluster: systems/infrastructure/access.md
+          - mgmt02 (Slurm/portal head): systems/infrastructure/mgmt02.md
+          - mgmt01 (provisioning head): systems/infrastructure/mgmt01.md
+          - Networks & addressing: systems/infrastructure/network.md
+          - Login & DTN nodes: systems/infrastructure/login-dtn.md
+          - BMC / IPMI / iDRAC: systems/infrastructure/bmc-ipmi.md
+          - InfiniBand fabric: systems/infrastructure/infiniband.md
+      - Compute:
+          - Provisioning (mProv): systems/compute/provisioning.md
+          - Adding / retiring nodes: systems/compute/node-lifecycle.md
+      - Slurm admin:
+          - Configuration: systems/slurm/configuration.md
+          - Prolog / epilog / SPANK: systems/slurm/prolog-epilog.md
+          - Node Health Check (NHC): systems/slurm/nhc.md
+          - Common admin tasks: systems/slurm/common-tasks.md
+          - Restarting Slurm: systems/slurm/restart.md
+          - Upgrading Slurm: systems/slurm/upgrades.md
+          - Troubleshooting: systems/slurm/troubleshooting.md
+      - Storage:
+          - WEKA: systems/storage/weka.md
+          - NFS & autofs: systems/storage/nfs-autofs.md
+      - Identity:
+          - LDAP & SSSD: systems/identity/ldap-sssd.md
+          - Keycloak & SSO: systems/identity/keycloak.md
+      - Services (CLOACK stack):
+          - Stack overview: systems/services/cloack-stack.md
+          - Reverse proxy (NPM) & TLS: systems/services/reverse-proxy.md
+          - Mail (arch-mta): systems/services/mail.md
+          - Globus / DTN: systems/services/globus.md
+      - Monitoring:
+          - Overview: systems/monitoring/overview.md
+          - Monitoring hosts: systems/monitoring/hosts.md
+          - Prometheus & Thanos: systems/monitoring/prometheus.md
+          - Grafana: systems/monitoring/grafana.md
+          - Exporters & collectors: systems/monitoring/exporters.md
+          - Logging: systems/monitoring/logging.md
+          - Alerting: systems/monitoring/alerting.md
+      - Operations:
+          - Daily checks: systems/operations/daily-checks.md
+          - Scheduled jobs: systems/operations/scheduled-jobs.md
+          - Backups & restore: systems/operations/backups.md
+          - Maintenance windows: systems/operations/maintenance.md
+          - Change management: systems/operations/change-management.md
+          - Incident response: systems/operations/incident-response.md
+          - Patching & OS updates: systems/operations/patching.md
+      - Security:
+          - Posture & findings: systems/security/posture.md
+          - Secrets handling: systems/security/secrets.md
+      - Runbooks:
+          - systems/runbooks/index.md
+          - Node down / drained: systems/runbooks/node-down.md
+          - slurmctld slow or unresponsive: systems/runbooks/slurmctld-unresponsive.md
+          - WEKA mount missing: systems/runbooks/weka-mount-missing.md
+          - GPU Xid / missing GPU: systems/runbooks/gpu-errors.md
+          - Restore a CLOACK database: systems/runbooks/restore-db.md
   - Contributing: contributing.md

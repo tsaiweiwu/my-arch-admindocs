@@ -66,7 +66,7 @@ Compose projects (`docker compose ls`):
 and a host `nginx` on :14000–14050 that belongs to the WEKA client.
 
 `slurmd.service` and `mprov-script-runner.service` are **enabled** but not running.
-mgmt02 isn't a compute node; see [Known issues](../reference/known-issues.md).
+mgmt02 isn't a compute node; see [Known issues](../../cluster/reference/known-issues.md).
 
 ### Timers
 

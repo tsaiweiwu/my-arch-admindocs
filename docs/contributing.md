@@ -26,15 +26,31 @@ git add -A && git commit -m "docs: …" && git push
   List all stubs with `grep -rl 'todo "Stub' docs/`.
 - Use admonitions: `note`, `tip`, `warning`, `danger`.
 - **No secrets.** Write "in `/opt/cloack/.env` (`KEY_NAME`)", never the value.
-- Link to existing in-house docs instead of copying them (see [Related docs](reference/related-docs.md)).
+- Link to existing in-house docs instead of copying them (see [Related docs](cluster/reference/related-docs.md)).
 
-## Read the Docs
+## Where pages go
 
-`.readthedocs.yaml` builds with MkDocs on Python 3.12 from `docs/requirements.txt`.
-To publish, push this repo to GitHub/GitLab and import it on readthedocs.org
-(or a Read the Docs for Business org if the docs must be private).
+| Folder | Put a page here when… |
+|---|---|
+| `docs/cluster/` | Both teams need it: facts about hardware, partitions, accounts, billing, storage layout, reference tables |
+| `docs/sse/` | It's how SSE does something: software installs, user and lab support, portal and account work |
+| `docs/systems/` | It's how Systems does something: hosts, networks, provisioning, Slurm admin, monitoring, operations |
+
+If a page has facts for everyone and steps for one team, split it: the facts go in `cluster/`, the steps in the
+team's folder, and each links to the other. Add every new page to `nav:` in `mkdocs.yml`. When you move a page,
+add its old path to `redirect_maps` in `mkdocs.yml` so bookmarks keep working.
+
+Docs copied from another repo (e.g. the CLOACK admin CLI guide) start with a box naming the source and saying
+which copy wins.
+
+## Publishing
+
+https://admindocs.arch.jhu.edu is built on archgraf: `admindocs-build.timer` pulls `main` every 5 minutes, runs
+`pip install -r docs/requirements.txt` and `mkdocs build`, and nginx serves the result behind Nginx Proxy Manager
+(TLS, JHU network only, staff login from an NPM access list). A push to `main` is live within about 5 minutes; a
+failed build keeps serving the last good one. `.readthedocs.yaml` is left over from the initial setup.
 
 !!! todo "Stub"
     - [x] Remote repo: `jhu-arch/arch-admindocs` (private); archgraf pulls it every 5 min with a read-only deploy key
-    - [ ] Public vs. private hosting. Much of this content (IP plan, findings) **shouldn't be public**
-    - [ ] Docs review cadence and owners
+    - [x] Private hosting: archgraf + NPM staff login
+    - [ ] Docs review cadence and owners (one per tab?)

@@ -37,7 +37,7 @@ pdsh -w 'ga130,gb201,gb301,gh113,gh201,gl106' 'echo "fm=$(systemctl is-active nv
 
 ## Health checks
 
-- NHC: `check_nv_err` and `check_nv_gpu_count` per group (see [NHC](../slurm/nhc.md)).
+- NHC: `check_nv_err` and `check_nv_gpu_count` per group (see [NHC](../../systems/slurm/nhc.md)).
 - `gpu-health` collector: Xid counts, row remap / retired pages, GPUs on the PCI bus vs. visible, every 2 min.
 - `nvidia_gpu_prometheus_exporter` (:9445) for jobstats.
 

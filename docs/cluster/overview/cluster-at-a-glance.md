@@ -38,7 +38,7 @@
 | DGX Spark (aarch64) | gb101, gb106 | 20 cores, ~124 GiB, 1 × GB10 | `dgxspark` (hidden) |
 
 Roughly **620 physical GPUs** (counting each MIG-partitioned A100 once).
-See [Node inventory](../compute/inventory.md) for full detail.
+See [Node inventory](../hardware/inventory.md) for full detail.
 
 ## Support nodes
 

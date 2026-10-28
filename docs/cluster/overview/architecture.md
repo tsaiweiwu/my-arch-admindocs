@@ -49,7 +49,7 @@
 - **ColdFront is the source of truth** for users, groups, UIDs/GIDs, projects,
   allocations and Slurm associations. It pushes into LDAP and Slurm. Don't
   hand-edit LDAP or `sacctmgr` for things ColdFront manages (see
-  [User lifecycle](../identity/user-lifecycle.md)).
+  [User lifecycle](../../sse/accounts/user-lifecycle.md)).
 - **Server-side cost gate.** `job_submit.lua` + `cli_filter.lua` make users
   explicitly accept cost on paid partitions (see
   [Job submit & billing](../slurm/job-submit-billing.md)).

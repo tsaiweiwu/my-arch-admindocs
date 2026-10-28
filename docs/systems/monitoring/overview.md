@@ -23,7 +23,7 @@
 | **Prometheus shards** | sjprom1/2, infraprom1/2, rfprom1 | [Prometheus & Thanos](prometheus.md) |
 | **Exporters & collectors** | every node, installed at boot by `exporter_installs` | [Exporters & collectors](exporters.md) |
 | **Alerting** | Grafana alerting → Slack #sev-1/2/3, #hw-alerts | [Alerting](alerting.md) |
-| **Jobstats / Job Defense Shield** | mgmt02 + login nodes | [Jobstats & JDS](jobstats-jds.md) |
+| **Jobstats / Job Defense Shield** | mgmt02 + login nodes | [Jobstats & JDS](../../sse/jobs/jobstats-jds.md) |
 | **Public status page** | archgraf (publisher + nginx :8081) → status.arch.jhu.edu | Aggregated numbers only, no route back into monitoring |
 | **Monitoring VMs** | Eden + SJ-proxmox | [Monitoring hosts](hosts.md) |
 

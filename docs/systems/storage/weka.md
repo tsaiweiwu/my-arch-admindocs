@@ -58,5 +58,5 @@ Per-FS usage snapshots: `/opt/mprov/software/weka_<fs>_usage.txt`.
     - [ ] Alert triage: which of the 105 alerts are expected
     - [ ] Snapshot policy (if any) for home/projects
     - [ ] Tiering to object storage ("cloud: connected")?
-    - [ ] Quota enforcement: directory quotas vs. per-FS sizing (see [Quotas](quotas.md))
+    - [ ] Quota enforcement: directory quotas vs. per-FS sizing (see [Quotas](../../cluster/storage/quotas.md))
     - [ ] Collecting diagnostics for WEKA support (`weka diags`)

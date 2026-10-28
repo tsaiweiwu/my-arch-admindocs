@@ -2,8 +2,8 @@
 
 Administrator documentation for the **Skipjack** HPC cluster (ARCH, Johns Hopkins
 University), written in Markdown and built with [MkDocs](https://www.mkdocs.org/)
-+ [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) for
-[Read the Docs](https://readthedocs.org/).
++ [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), served at
+https://admindocs.arch.jhu.edu (archgraf rebuilds from `main` every 5 minutes).
 
 ## Build locally
 
@@ -11,7 +11,7 @@ University), written in Markdown and built with [MkDocs](https://www.mkdocs.org/
 python3 -m venv .venv && . .venv/bin/activate
 pip install -r docs/requirements.txt
 mkdocs serve            # live preview at http://127.0.0.1:8000
-mkdocs build --strict   # what CI / RTD should pass
+mkdocs build --strict   # must pass before you push
 ```
 
 ## Layout
@@ -19,7 +19,9 @@ mkdocs build --strict   # what CI / RTD should pass
 ```
 .readthedocs.yaml     RTD build config
 mkdocs.yml            site config + navigation
-docs/                 all content (one folder per nav section)
+docs/cluster/         facts both teams use (hardware, partitions, billing, storage, reference)
+docs/sse/             Scientific Support Engineers: software, user/lab support, portal
+docs/systems/         Systems team: infrastructure, Slurm admin, monitoring, operations
 docs/requirements.txt pinned doc toolchain
 ```
 

@@ -79,7 +79,7 @@ confreload        # = scontrol reconfigure + ColdFront import_slurm_cluster --up
 ## Helper commands (in `/apps/helpers`, copies in `/usr/local/bin`)
 
 `sbalance`, `stree`, `sqos`, `sassoc`, `sadmin`, `sbrief`, `sfeatures`, `sqme`,
-`seff`, `interact`, `jobstats`. See [Helper scripts](../software/helpers.md).
+`seff`, `interact`, `jobstats`. See [Helper scripts](../../sse/software/helpers.md).
 
 !!! todo "Stub"
     - [ ] Good defaults for `squeue`/`sinfo` format strings (`SQUEUE_FORMAT`)

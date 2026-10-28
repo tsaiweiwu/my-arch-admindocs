@@ -21,7 +21,7 @@ On `PATH` for users. Copies of the Slurm ones are in `/usr/local/bin` on mgmt02.
 | `spackon`, `easybuild` | Software build environments (staff) |
 | `change_login_shell.sh` | Change LDAP login shell |
 | `gatekeeper_auth`, `pam-arch`, `crypde.sh` | Auth-related (document!) |
-| `bmc` | **Root-only.** IPMI wrapper (see [BMC](../infrastructure/bmc-ipmi.md)) |
+| `bmc` | **Root-only.** IPMI wrapper (see [BMC](../../systems/infrastructure/bmc-ipmi.md)) |
 | `traces-clean` | **Root-only.** WEKA traces cleanup? |
 
 !!! todo "Stub"

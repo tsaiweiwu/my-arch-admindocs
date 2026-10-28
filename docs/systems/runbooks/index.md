@@ -15,9 +15,9 @@ Short, step-by-step procedures for specific symptoms. Each runbook should have:
 | [slurmctld slow or unresponsive](slurmctld-unresponsive.md) | Stub |
 | [WEKA mount missing](weka-mount-missing.md) | Stub |
 | [GPU Xid / missing GPU](gpu-errors.md) | Stub |
-| [User cannot log in](user-login.md) | Stub |
+| [User cannot log in](../../sse/runbooks/user-login.md) | Stub |
 | [Restore a CLOACK database](restore-db.md) | Stub |
-| [Filesystem full](filesystem-full.md) | Stub |
+| [Filesystem full](../../sse/runbooks/filesystem-full.md) | Stub |
 
 !!! todo "Stub: more runbooks to write"
     - [ ] Prolog failure draining many nodes

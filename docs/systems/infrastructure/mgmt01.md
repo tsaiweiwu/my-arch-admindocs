@@ -19,7 +19,7 @@
 - NFS server, `postfix`, `rdma-ndd`, `sssd`, `munge`, `weka-agent`
 - `slurmdbd.service` and `slurmrestd.service` **running natively**. The
   production slurmdbd/slurmrestd are the containers on mgmt02, so these look
-  like leftovers from before the move to mgmt02 (see [Known issues](../reference/known-issues.md))
+  like leftovers from before the move to mgmt02 (see [Known issues](../../cluster/reference/known-issues.md))
 
 !!! todo "Stub"
     - [ ] Full survey of mgmt01 (this page was written from mgmt02 only)

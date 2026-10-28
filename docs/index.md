@@ -10,17 +10,25 @@ Sciences (SSCI) research groups.
     system before acting on anything here. Every page that still needs content
     has a **Stub** box listing what belongs there.
 
+## Sections
+
+| Tab | For | What's there |
+|---|---|---|
+| [Cluster](cluster/index.md) | Everyone | Hardware, partitions, accounts and billing, storage layout, reference tables |
+| [SSE](sse/index.md) | Scientific Support Engineers | Software (modules, SpackON, containers, CryoSPARC), accounts and portal, user runbooks |
+| [Systems](systems/index.md) | Systems team | Infrastructure, provisioning, Slurm admin, storage backends, monitoring, operations, security |
+
 ## Start here
 
 | If you need to… | Go to |
 |---|---|
-| Get a picture of the whole cluster | [Cluster at a glance](overview/cluster-at-a-glance.md) |
-| Understand how the pieces fit | [Architecture](overview/architecture.md) |
-| Reach the head nodes | [Accessing the cluster](infrastructure/access.md) |
-| Drain, resume or reboot nodes | [Common Slurm admin tasks](slurm/common-tasks.md) |
-| Fix a down node | [Runbook: node down](runbooks/node-down.md) |
-| Find where a config file lives | [File locations](reference/file-locations.md) |
-| Look up a port | [Ports & services](reference/ports.md) |
+| Get a picture of the whole cluster | [Cluster at a glance](cluster/overview/cluster-at-a-glance.md) |
+| Understand how the pieces fit | [Architecture](cluster/overview/architecture.md) |
+| Reach the head nodes | [Accessing the cluster](systems/infrastructure/access.md) |
+| Drain, resume or reboot nodes | [Common Slurm admin tasks](systems/slurm/common-tasks.md) |
+| Fix a down node | [Runbook: node down](systems/runbooks/node-down.md) |
+| Find where a config file lives | [File locations](cluster/reference/file-locations.md) |
+| Look up a port | [Ports & services](cluster/reference/ports.md) |
 
 ## The one thing to know about mgmt02
 
@@ -29,4 +37,4 @@ services on mgmt02**. They run as **Docker containers** (`skipjack-slurmctld`,
 `skipjack-slurmdbd`, `skipjack-slurmrestd`, `slurm-db`) next to the CLOACK
 portal stack (ColdFront, Keycloak, OpenLDAP, Postgres, Helpdesk, Open OnDemand).
 `systemctl status slurmctld` shows nothing useful. Use `docker ps`, `docker logs`
-and the [restart procedure](slurm/restart.md).
+and the [restart procedure](systems/slurm/restart.md).
