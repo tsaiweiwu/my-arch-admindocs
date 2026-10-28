@@ -12,11 +12,29 @@ Sciences (SSCI) research groups.
 
 ## Sections
 
-| Tab | For | What's there |
-|---|---|---|
-| [Cluster](cluster/index.md) | Everyone | Hardware, partitions, accounts and billing, storage layout, reference tables |
-| [SSE](sse/index.md) | Scientific Support Engineers | Software (modules, SpackON, containers, CryoSPARC), accounts and portal, user runbooks |
-| [Systems](systems/index.md) | Systems team | Infrastructure, provisioning, Slurm admin, storage backends, monitoring, operations, security |
+<div class="grid cards" markdown>
+
+-   :material-server-network:{ .lg .middle } **[Cluster](cluster/index.md)**
+
+    ---
+
+    For everyone. Hardware, partitions, accounts and billing, storage layout, reference tables.
+
+-   :material-flask-outline:{ .lg .middle } **[SSE](sse/index.md)**
+
+    ---
+
+    Scientific Support Engineers. Software (modules, SpackON, containers, CryoSPARC), accounts and portal,
+    user runbooks.
+
+-   :material-cog-outline:{ .lg .middle } **[Systems](systems/index.md)**
+
+    ---
+
+    Systems team. Infrastructure, provisioning, Slurm admin, storage backends, monitoring, operations,
+    security.
+
+</div>
 
 ## Start here
 

@@ -1,0 +1,74 @@
+/* JHU look for the admin docs: university brand colors and fonts, same as the status page.
+   Heritage Blue #002D72, Spirit Blue #68ACE5, Medium Blue #0077D8. Fonts are self-hosted (SIL OFL). */
+
+@font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 600; font-display: swap;
+             src: url("../assets/fonts/SourceSerif4-600-latin.woff2") format("woff2"); }
+@font-face { font-family: "Work Sans"; font-style: normal; font-weight: 300 700; font-display: swap;
+             src: url("../assets/fonts/WorkSans-400-latin.woff2") format("woff2"); }
+
+:root {
+  --jhu-heritage: #002D72;
+  --jhu-heritage-dark: #001F4F;
+  --jhu-spirit: #68ACE5;
+  --jhu-medium: #0077D8;
+  --md-text-font: "Work Sans";
+  --md-code-font: "SFMono-Regular";
+}
+
+[data-md-color-primary="custom"] {
+  --md-primary-fg-color: var(--jhu-heritage);
+  --md-primary-fg-color--light: var(--jhu-medium);
+  --md-primary-fg-color--dark: var(--jhu-heritage-dark);
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.75);
+}
+[data-md-color-accent="custom"] {
+  --md-accent-fg-color: var(--jhu-medium);
+  --md-accent-fg-color--transparent: rgba(0, 119, 216, 0.1);
+}
+
+/* Light: links in Medium Blue, headings in Heritage Blue */
+[data-md-color-scheme="default"] {
+  --md-typeset-a-color: var(--jhu-medium);
+  --jhu-heading: var(--jhu-heritage);
+  --jhu-table-head: rgba(0, 45, 114, 0.06);
+}
+/* Dark: navy-tinted slate, Spirit Blue links */
+[data-md-color-scheme="slate"] {
+  --md-hue: 215;
+  --md-typeset-a-color: var(--jhu-spirit);
+  --md-accent-fg-color: var(--jhu-spirit);
+  --jhu-heading: #c9dcf2;
+  --jhu-table-head: rgba(104, 172, 229, 0.10);
+}
+
+/* Header and tabs: Heritage Blue with a Spirit Blue rule underneath */
+.md-header { box-shadow: none; }
+.md-tabs { border-bottom: 3px solid var(--jhu-spirit); }
+.md-tabs__link { font-weight: 500; opacity: 0.8; }
+.md-tabs__link--active, .md-tabs__link:hover { opacity: 1; font-weight: 600; }
+.md-header__button.md-logo { padding: 0.25rem 0.2rem; }
+.md-header__button.md-logo img { height: 1.9rem; width: auto; }
+.md-header__title { font-weight: 600; }
+
+/* Type */
+.md-typeset h1, .md-typeset h2 {
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  color: var(--jhu-heading);
+  letter-spacing: -0.01em;
+}
+.md-typeset h1 { font-size: 2.1em; margin-bottom: 0.8em; }
+.md-typeset h2 { border-bottom: 1px solid var(--md-default-fg-color--lightest); padding-bottom: 0.2em; }
+.md-typeset h3 { font-weight: 600; color: var(--jhu-heading); }
+
+/* Tables */
+.md-typeset table:not([class]) { border-radius: 6px; font-size: 0.72rem; }
+.md-typeset table:not([class]) th { background: var(--jhu-table-head); color: var(--jhu-heading); font-weight: 600; }
+
+/* Home page cards */
+.md-typeset .grid.cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); }
+.md-typeset .grid.cards > ul > li { border-radius: 10px; border-top: 4px solid var(--jhu-spirit); }
+.md-typeset .grid.cards > ul > li:hover { border-color: var(--jhu-medium); }
+.md-typeset .grid.cards .twemoji { color: var(--jhu-medium); }
+[data-md-color-scheme="slate"] .md-typeset .grid.cards .twemoji { color: var(--jhu-spirit); }
